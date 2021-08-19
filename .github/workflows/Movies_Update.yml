@@ -30,7 +30,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-      - name: execute py script # run rarbg-top10.py to get the latest data
-        run: rarbg-top10.py
+    - name: execute py script # run rarbg-top10.py to get the latest data
+      run: rarbg-top10.py
           
 
