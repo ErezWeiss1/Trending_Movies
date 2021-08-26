@@ -3,6 +3,9 @@ import requests
 import time
 import pandas as pd
 
+from bs4 import BeautifulSoup as bs
+
+
 URL = ("https://torrentapi.org/pubapi_v2.php?" +
        "mode=list&" +
        "category=52&" +
@@ -73,3 +76,27 @@ df = pd.DataFrame(movies,
 
 df.to_csv('data/movie_list.csv')
 print(df["Title"].to_string())
+
+html=open('./html/index.html')
+soup = bs(html, "html.parser")
+
+for i in range(len(rarbg_top10_list)):
+    
+    soup.find(id=i).a.attrs['href'] = "https://rarbgto.org/torrents.php?imdb=" + movies[i]['imdb']
+    soup.find(id=i).a.img.attrs['src'] = movies[i]['Poster']
+    soup.find(id=i).h3.string = movies[i]['Title'] + " (" + movie_db_json['Year'] + ")"
+    soup.find(id=i).h4.string = movies[i]['Genre']
+    soup.find(id=i).h6.string = "IMDB rating: " + movies[i]['imdbRating'] + "/" + movies[i]['imdbVotes']
+    soup.find(id=i).p1.string = movies[i]['Plot']
+    soup.find(id=i).p2.string = "Director: " + movies[i]['Director']
+    soup.find(id=i).p3.string = "Wirter: " + movies[i]['Writer']
+    soup.find(id=i).p4.string = "Actors: " + movies[i]['Actors']
+
+html.close()
+html_new = soup.prettify("utf-8")
+with open("./html/index.html", "wb") as file:
+    file.write(html_new)
+
+
+
+
