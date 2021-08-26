@@ -4,6 +4,9 @@ name: Update Movie List
 
 on:
   workflow_dispatch:
+  
+  schedule:
+    - cron:  '30 19 * * *'
 
 jobs:
   build:
