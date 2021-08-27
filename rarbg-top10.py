@@ -82,7 +82,7 @@ df.to_csv('data/movie_list.csv')
 print(df["Title"].to_string())
 
 # change the web page according to the updated movies list
-html = open('./html/index.html')
+html = open('./index.html')
 soup = bs(html, "html.parser")
 
 for i in range(len(rarbg_top10_list)):
@@ -99,5 +99,5 @@ for i in range(len(rarbg_top10_list)):
 
 html.close()
 html_new = soup.prettify("utf-8")
-with open("./html/index.html", "wb") as file:
+with open("./index.html", "wb") as file:
     file.write(html_new)
