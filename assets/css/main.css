@@ -3648,7 +3648,7 @@ input, select, textarea {
 
 	.wrapper {
 		background-color: #2e3141;
-		margin: 6.5em 0;
+		margin: 0;
 		position: relative;
 	}
 
@@ -3669,7 +3669,7 @@ input, select, textarea {
 			background-size: 100% 100%;
 			content: '';
 			display: block;
-			height: 6.5em;
+			height: 0em;
 			position: absolute;
 			width: 100%;
 		}
@@ -3932,11 +3932,11 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			.wrapper {
-				margin: 4.75em 0;
+				margin:  0;
 			}
 
 				.wrapper:before, .wrapper:after {
-					height: 4.75em;
+					height: 0em;
 				}
 
 				.wrapper:before {
@@ -3967,11 +3967,11 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			.wrapper {
-				margin: 2.5em 0;
+				margin:  0;
 			}
 
 				.wrapper:before, .wrapper:after {
-					height: 2.5em;
+					height: 0em;
 				}
 
 				.wrapper:before {

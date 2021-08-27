@@ -2,28 +2,28 @@ import json
 import requests
 import time
 import pandas as pd
-
 from bs4 import BeautifulSoup as bs
 
-
+# rarbg API call configuration
 URL = ("https://torrentapi.org/pubapi_v2.php?" +
        "mode=list&" +
        "category=52&" +
        "sort=leechers&" +
        "token=lnjzy73ucv&" +
        "format=json_extended&" +
-       "app_id=lol")
+       "app_id=tmlist")
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) ' +
            'AppleWebKit/537.36 (KHTML, like Gecko) ' +
            'Chrome/92.0.4515.159 ' +
            'Safari/537.36'}
 
+time.sleep(2)  # timeout required
 rarbg = requests.get(URL, headers=headers)
-time.sleep(1)
 rarbg_json = json.loads(rarbg.text)
 rarbg_torrent_list = rarbg_json['torrent_results']
 
+# create top 10 list with necessary data
 rarbg_top10_list = [[None, None, None]] * 10
 
 for i in range(len(rarbg_torrent_list)):
@@ -40,12 +40,14 @@ for i in range(len(rarbg_torrent_list)):
                 if rarbg_top10_list[j][0] == rarbg_torrent_list[i]['episode_info']['imdb']:
                     break
 
+# create movies list
 movies = [{"Title": "", "Year": "", "Genre": "", "Plot": "", "Director": "",
            "Writer": "", "Actors": "", "Poster": "", "Metascore": "",
            "imdbRating": "", "imdbVotes": "", "imdb": "",
            "leechers": "", "seeders": ""}
           for i in range(len(rarbg_top10_list))]
 
+# fill movies list with metadata from the open movie database
 for i in range(len(rarbg_top10_list)):
     movie_db = requests.get("http://www.omdbapi.com/?apikey=4a43ddc9&i=" +
                             rarbg_top10_list[i][0],
@@ -70,18 +72,21 @@ for i in range(len(rarbg_top10_list)):
 
     time.sleep(1)
 
+# convert the movies list to pandas dataframe
 df = pd.DataFrame(movies,
                   index=[i for i in range(1, 11)],
                   columns=list(movies[0]))
 
+# export dataframe to csv file
 df.to_csv('data/movie_list.csv')
 print(df["Title"].to_string())
 
-html=open('./index.html')
+# change the web page according to the updated movies list
+html = open('./html/index.html')
 soup = bs(html, "html.parser")
 
 for i in range(len(rarbg_top10_list)):
-    
+
     soup.find(id=i).a.attrs['href'] = "https://rarbgto.org/torrents.php?imdb=" + movies[i]['imdb']
     soup.find(id=i).a.img.attrs['src'] = movies[i]['Poster']
     soup.find(id=i).h3.string = movies[i]['Title'] + " (" + movie_db_json['Year'] + ")"
@@ -94,9 +99,5 @@ for i in range(len(rarbg_top10_list)):
 
 html.close()
 html_new = soup.prettify("utf-8")
-with open("./index.html", "wb") as file:
+with open("./html/index.html", "wb") as file:
     file.write(html_new)
-
-
-
-
