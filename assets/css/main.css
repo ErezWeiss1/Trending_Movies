@@ -2491,7 +2491,7 @@ input, select, textarea {
 		}
 
 			ul.alt li {
-				border-top: solid 1px rgba(255, 255, 255, 0.125);
+				border-top: solid 0px rgba(255, 255, 255, 0.125);
 				padding: 0.5em 0;
 			}
 
