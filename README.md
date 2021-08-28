@@ -1,7 +1,9 @@
 [![Update Movie List](https://github.com/ErezWeiss1/Trending_Movies/actions/workflows/UpdateMovieList.yml/badge.svg)](https://github.com/ErezWeiss1/Trending_Movies/actions/workflows/UpdateMovieList.yml)
 
 # Trending_Movies
-<br>
+
+### https://erezweiss1.github.io/Trending_Movies/  
+
 The goal of this project is to create web page containing the top 10 trending 4K/x265/HDR movies from the public torrent tracker rarbg.to, automating the task of finding a good movie to watch at the end of the day.
 <br>
 <br>
