@@ -4,7 +4,7 @@
 
 <p>The goal of this project is to create web page containing the top 10 trending 4K/x265/HDR movies from the public torrent tracker rarbg.to, automating the task of finding a good movie to watch at the end of the day.<br></p>
 
-The raw data is gathered using the API:
+<p>The raw data is gathered using the API:
 
 https://torrentapi.org/apidocs_v2.txt?app_id=lol
 
@@ -23,6 +23,7 @@ and injected into the "Movies" list which then converted to [pandas](https://git
  *prints the DataFrame
  *export DataFrame to .csv file in the ./data folder
  *changes the .html file using [BeatifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+ </p>
 
 the script is scheduled to run once a day through github actions.
 
