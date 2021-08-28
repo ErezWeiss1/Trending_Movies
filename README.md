@@ -24,7 +24,7 @@ and injected into the "Movies" list which then converted to [pandas](https://git
  *export DataFrame to .csv file in the ./data folder
  *changes the .html file using [BeatifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
-the script is scheduled to run once a day through github actions.
+the script is scheduled to run once a day through github actions.<br>
 
 
 
