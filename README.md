@@ -2,7 +2,7 @@
 
 # Trending_Movies
 
-<p>The goal of this project is to create web page containing the top 10 trending 4K/x265/HDR movies from the public torrent tracker rarbg.to, automating the task of finding a good movie to watch at the end of the day.  </p>
+<p>The goal of this project is to create web page containing the top 10 trending 4K/x265/HDR movies from the public torrent tracker rarbg.to, automating the task of finding a good movie to watch at the end of the day.<br></p>
 
 The raw data is gathered using the API:
 
