@@ -26,6 +26,8 @@ and injected into the "Movies" list which then converted to [pandas](https://git
 
 the script is scheduled to run once a day through github actions.
 
+
+
 Check out more projects by me here:
 
 https://erezweiss1.github.io/
