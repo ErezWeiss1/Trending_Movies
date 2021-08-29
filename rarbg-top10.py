@@ -1,3 +1,4 @@
+import sys
 import json
 import requests
 import time
@@ -20,6 +21,21 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) ' +
 
 time.sleep(2)  # timeout required
 rarbg = requests.get(URL, headers=headers)
+
+if 'error' in rarbg.json() :
+    print("Faild 1st try")
+    time.sleep(5)  # timeout required
+    rarbg = requests.get(URL, headers=headers)
+
+    if 'error' in rarbg.json() :
+        print("Faild 2nd try")
+        time.sleep(5)  # timeout required
+        rarbg = requests.get(URL, headers=headers)
+
+        if 'error' in rarbg.json() :
+            print("Faild 3rd try")
+            sys.exit("API Fail")
+
 rarbg_json = json.loads(rarbg.text)
 rarbg_torrent_list = rarbg_json['torrent_results']
 
