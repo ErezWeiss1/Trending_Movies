@@ -105,7 +105,7 @@ for i in range(len(rarbg_top10_list)):
 
     soup.find(id=i).a.attrs['href'] = "https://rarbgto.org/torrents.php?imdb=" + movies[i]['imdb']
     soup.find(id=i).a.img.attrs['src'] = movies[i]['Poster']
-    soup.find(id=i).h3.string = movies[i]['Title'] + " (" + movie_db_json['Year'] + ")"
+    soup.find(id=i).h3.string = movies[i]['Title'] + " (" + movies[i]['Year'] + ")"
     soup.find(id=i).h4.string = movies[i]['Genre']
     soup.find(id=i).h6.string = "IMDB rating: " + movies[i]['imdbRating'] + "/" + movies[i]['imdbVotes']
     soup.find(id=i).p1.string = movies[i]['Plot']
