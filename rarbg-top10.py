@@ -10,7 +10,7 @@ URL = ("https://torrentapi.org/pubapi_v2.php?" +
        "mode=list&" +
        "category=52&" +
        "sort=leechers&" +
-       "token=oy73dkwzpj&" +
+       "token=81fxwq0yku&" +
        "format=json_extended&" +
        "app_id=tmlist")
 
